@@ -22,10 +22,10 @@ body {
 
 .sign-up-form {
     background-color: #fff;
-    padding: 20px;
+    padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 360px;
     text-align: center;
 }
 
@@ -37,7 +37,8 @@ body {
 
 .sign-up-form label {
     display: block;
-    margin: 10px 0;
+    text-align: left;
+    margin: 10px 0 5px;
     font-size: 16px;
     color: #555;
 }
@@ -45,28 +46,26 @@ body {
 .sign-up-form input {
     width: 100%;
     padding: 10px;
-    margin: 5px 0;
+    margin: 5px 0 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 .sign-up-form button {
-    background-color: #007bff;
+    background-color: #4a5bff;
     border: none;
     color: white;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 20px 0;
     cursor: pointer;
     border-radius: 5px;
+    width: 100%;
     transition: background-color 0.3s ease;
 }
 
 .sign-up-form button:hover {
-    background-color: #0056b3;
+    background-color: #3a4ae6;
 }
 
 .sign-up-form p {
@@ -75,7 +74,7 @@ body {
 }
 
 .sign-up-form a {
-    color: #007bff;
+    color: #4a5bff;
     text-decoration: none;
 }
 

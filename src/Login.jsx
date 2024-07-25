@@ -13,13 +13,17 @@ function Login(){
 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+  
 
     const handleSubmit= async (e) =>{
         e.preventDefault()
         try{
-            await signInWithEmailAndPassword(auth,email,password)
+            const userCredential =await signInWithEmailAndPassword(auth,email,password)
+            const token = await userCredential.user.getIdToken();
+            localStorage.setItem('token',token);
+            localStorage.setItem('username',userCredential.user.email);
             console.log("Login Sucessfully")
-            window.location.href="/profile"
+            window.location.href="/home"
             toast.success("User logged in Successfully", {
                 position: "top-center",
               });
@@ -35,13 +39,14 @@ function Login(){
         <div className='sign-up-container'>
             <form className='sign-up-form' onSubmit={handleSubmit}>
                 <h1>Log In</h1>
+                <p>Welcome, to STUDYBUDDY, login to enjoy this wonderful environment</p>
                 <label htmlFor='name'>
                     Name:
                     <input type='text'></input>
                 </label>
                 <label htmlFor='email'>
                         Email:
-                        <input type='email' onChange={(e) =>setEmail(e.target.value)} placeholder='amanda...gmail.com'></input>
+                        <input type='email' onChange={(e) =>setEmail(e.target.value)} placeholder='enter email'></input>
                 </label>
                 <label htmlFor='password'>
                     Password:

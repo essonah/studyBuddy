@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import './Profile.css';
 
 function Profile() {
     const [userDetails, setUserDetails] = useState(null);
+    const navigate = useNavigate();
 
     const fetchUserData = async () => {
         auth.onAuthStateChanged(async (user) => {
@@ -49,6 +51,9 @@ function Profile() {
                         <p>Email: {userDetails.email}</p>
                         <p>Name: {userDetails.name}</p>
                     </div>
+                    <button className="btn btn-primary" onClick={() => navigate('/edit-profile')}>
+                        Edit Profile
+                    </button>
                     <button className="btn btn-primary" onClick={handleLogout}>
                         Logout
                     </button>
