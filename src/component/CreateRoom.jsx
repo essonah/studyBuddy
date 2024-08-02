@@ -51,7 +51,7 @@ function CreateRoom() {
             </input>
         </div>
         <button type="submit">Create Room</button>
-        <button>Cancel</button>
+        <button>Cancel </button>
       </form>
     </div>
   );

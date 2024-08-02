@@ -1,77 +1,184 @@
-/* StudyRoom.css */
-.study-room {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .members, .chat {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px 0;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"] {
-    width: calc(100% - 100px);
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 8px 12px;
-    border: none;
-    background-color: #4a5bff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .chat {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .chat-messages {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-  }
-  
-  .chat-message {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .chat-input {
-    display: flex;
-  }
+html, body {
+  height: 100%;
+}
+.heading {
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.study-room {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 40px;
+  min-height: 100vh; /* Ensure the container takes the full viewport height */
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.members {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.members h2 {
+  margin-bottom: 10px;
+}
+
+.members ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.members li {
+  padding: 5px 0;
+}
+
+.members input {
+  width: calc(100% - 110px);
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.members button {
+  padding: 8px 20px;
+}
+
+.meeting {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meeting button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.meeting button:hover {
+  background: #0056b3;
+}
+
+.meeting-link {
+  text-align: center;
+}
+
+.meeting-link h2 {
+  margin-bottom: 10px;
+}
+
+.meeting-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.meeting-link a:hover {
+  text-decoration: underline;
+}
+
+.chat {
+  flex: 2;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background: #f9f9f9;
+  width: 100%;
+}
+
+.chat h2 {
+  margin-bottom: 10px;
+}
+
+.chat-messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #e0e0e0;
+  position: relative;
+}
+
+.my-message {
+  background: #cce5ff;
+  text-align: right;
+}
+
+.chat-message strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.chat-message em {
+  font-size: 0.85em;
+  color: #777;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.chat-input input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.chat-input input[type="file"] {
+  display: none;
+}
+
+.chat-input label {
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.chat-input label:hover {
+  background: #0056b3;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background: #0056b3;
+}

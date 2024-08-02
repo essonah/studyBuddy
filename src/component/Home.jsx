@@ -7,7 +7,9 @@ import './Home.css';
 function Home() {
   const [rooms, setRooms] = useState([]);
   const [topics, setTopics] = useState([]);
-  const navigate = useNavigate(); // useNavigate instead of useHistory
+  const [searchInput, setSearchInput] = useState('');
+  const [selectedTopic, setSelectedTopic] = useState(''); // New state for selected topic
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchRoomsAndTopics = async () => {
@@ -31,11 +33,29 @@ function Home() {
   }, []);
 
   const navigateToCreateRoom = () => {
-    navigate("/create-room"); // Use navigate instead of history.push
+    navigate("/create-room"); 
   };
 
   const handleRoomClick = (roomId) => {
     navigate(`/studyroom/${roomId}`);
+  };
+  
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleTopicClick = (topic) => {
+    setSelectedTopic(topic);
+  };
+
+  const filteredRooms = rooms.filter(room => 
+    (room.name && room.name.toLowerCase().includes(searchInput.toLowerCase()) )||
+    (room.topic && room.topic.toLowerCase().includes(searchInput.toLowerCase())));
+
+  const filteredRoomsByTopic = selectedTopic ? filteredRooms.filter(room => room.topic === selectedTopic) : filteredRooms;
+  
+  const handleExploreResources = () => {
+    navigate("/resources");
   };
 
   return (
@@ -45,7 +65,8 @@ function Home() {
           <h1>StudyBuddy</h1>
         </div>
         <div className="search-bar">
-          <input type="text" placeholder="Search for rooms..." />
+          <input type="text" value={searchInput} onChange={handleSearchInput} placeholder="Search for rooms..." />
+          <button id="btn-resources" onClick={handleExploreResources} >Explore Resources</button>
         </div>
         <nav className="nav">
           <Link to="/login" className="nav-link">Login</Link>
@@ -61,15 +82,15 @@ function Home() {
           <h2>Browse Topics</h2>
           <ul>
             {topics.map((topic, index) => (
-              <li key={index}>{topic}</li>
+              <li key={index} onClick={() => handleTopicClick(topic)}>{topic}</li>
             ))}
           </ul>
         </div>
         <div className="study-rooms">
           <h2>Study Room</h2>
-          <p>{rooms.length} Rooms available</p>
+          <p>{filteredRoomsByTopic.length} Rooms available</p>
           <button onClick={navigateToCreateRoom} className="create-room-btn">Create Room</button>
-          {rooms.map((room) => (
+          {filteredRoomsByTopic.map((room) => (
             <div key={room.id} className="room" onClick={() => handleRoomClick(room.id)}>
               <div className="room-header">
                 <h3>{room.name}</h3>
@@ -86,11 +107,12 @@ function Home() {
           <h2>Recent Activities</h2>
           <ul>
             <li>@ama joined "code_stoppers"</li>
-            <li>@ama messaged the group"</li>
+            <li>@ama messaged the group</li>
             
             {/* Add more activities as needed */}
           </ul>
         </div>
+       
       </main>
     </div>
   );

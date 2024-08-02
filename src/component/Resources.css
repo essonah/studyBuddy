@@ -1,0 +1,107 @@
+/* Reset some basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif; /* Use a clean, modern font */
+  }
+  
+  .resources-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .resources-image {
+    flex: 1;
+    background: url('https://plus.unsplash.com/premium_photo-1669652639337-c513cc42ead6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVzb3VyY2V8ZW58MHx8MHx8fDA%3D') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .resources {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color for contrast */
+    overflow-y: auto;
+  }
+  
+  .upload-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-form input[type="file"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .upload-form input[type="text"] {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .upload-form button {
+    flex: 1;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .upload-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .resources input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .resources-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .resources-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .resources-list a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .resources-list a:hover {
+    color: #0056b3;
+  }
+  
+  .resources-list em {
+    display: block;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .resources-list p {
+    margin-top: 5px;
+    color: #333;
+  }

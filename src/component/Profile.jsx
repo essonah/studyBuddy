@@ -47,9 +47,13 @@ function Profile() {
             {userDetails ? (
                 <div className="profile-card">
                     <h3>Welcome {userDetails.name}</h3>
+                   
                     <div>
+                        <img src={userDetails.profilePic} alt="Profile" className='profile-pic' />
                         <p>Email: {userDetails.email}</p>
                         <p>Name: {userDetails.name}</p>
+                        <p>Topic of Interest: {userDetails.topic}</p>
+                        <p>Bio: {userDetails.bio}</p>
                     </div>
                     <button className="btn btn-primary" onClick={() => navigate('/edit-profile')}>
                         Edit Profile
